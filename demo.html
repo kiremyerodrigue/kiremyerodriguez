@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="2.1 jquery.js.js"></script>
+    <title>DEMO|SLIDER</title>
+    <style>
+     #wrapper{
+     margin:0px auto;
+     width:950px;   
+     }
+     #slider{
+     width:950px;
+     height:511px;
+     overflow: hidden;
+     margin-top:20px;   
+     }
+     #slider img{   
+     } 
+     a{
+     padding:5px 5px;
+     background-color: #000;
+     color:#fff;   
+     }  
+    </style>
+</head>
+<body>
+<div id="wrapper">
+<div id="slider">
+<img id="1" src="images/slide-1.jpg">
+<img id="2" src="images/slide-2.jpg">
+<img id="3" src="images/slide-3.jpg">
+
+</div>
+<a style="float:right;">NEXT</a>
+<a style="float:left;">previous</a>
+</div>
+<script type="text/javascript">
+$('document').ready(function(){
+sliderInt=1 
+sliderNext=2   
+$('#1').fadeIn(200)
+startslider()    
+});
+function startslider(){
+loop= setInterval (function(){
+    count=$('img').size();
+if(sliderNext>count){
+sliderInt=1;    
+sliderNext=1;
+}        
+$('img').fadeOut(1200); 
+$('#'+sliderNext).fadeIn(200);
+sliderInt=sliderNext;
+sliderNext=sliderNext+1;      
+},2000)   
+};     
+</script>
+</body>
+</html>
